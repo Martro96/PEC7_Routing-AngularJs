@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, output } from '@angular/core';
 import { Article } from './article-item.interface';
 import { CommonModule } from '@angular/common';
-import { DefaultImagePipe } from '../pipes/default-image.pipe';
+import { DefaultImagePipe } from '../../pipes/default-image.pipe';
 
 export interface ArticleQuantityChange {
   article: Article;

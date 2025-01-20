@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../article-item/article-item.interface';
 import { ArticleItemComponent, ArticleQuantityChange } from '../article-item/article-item.component';
 import { CommonModule } from '@angular/common';
-import { ArticleService } from '../services/article.service';
+import { ArticleService } from '../../services/article.service';
 import { Observable } from 'rxjs';
 
 @Component({

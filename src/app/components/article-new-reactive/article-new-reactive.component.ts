@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';  
 import { AbstractControl, ValidationErrors } from '@angular/forms';
-import { ArticleService } from '../services/article.service';
+import { ArticleService } from '../../services/article.service';
 import { Observable } from 'rxjs';
 import { Article } from '../article-item/article-item.interface';
 

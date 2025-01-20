@@ -22,6 +22,8 @@ router.post("/register", (req, res) => {
     return res.status(400).json({ msg: "User already exists, please login." });
   }
   users[user.username] = user.password;
+  console.log("Usuarios registrados:", users); // Verificamos qué usuarios se están guardando porque tengo un problema con el registro. Todo ok.
+
   res.json({
     msg: "Successfully created user, please login"
   });
