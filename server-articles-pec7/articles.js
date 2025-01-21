@@ -4,8 +4,8 @@ const router = express.Router();
 const articles = [
   {
     id: 1,
-    name: 'Article1',
-    imageUrl: 'assets/images/article1.jpg',
+    name: 'Zanahoria',
+    imageUrl: 'server-articles-pec7\assets\images\default-image.jpg',
     price: 19.95,
     isOnSale: false,
     quantityInCart: 0

@@ -2,20 +2,20 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetect
 import { Article } from './article-item.interface';
 import { CommonModule } from '@angular/common';
 import { DefaultImagePipe } from '../../pipes/default-image.pipe';
+import { Router } from '@angular/router';
 
 export interface ArticleQuantityChange {
   article: Article;
-  change: number; // Incremento o decremento
+  change: number; 
 }
 
 @Component({
   selector: 'app-article-item',
-  standalone: true, // Es un componente independiente
-  imports: [CommonModule, DefaultImagePipe
-    ], 
-  templateUrl: './article-item.component.html', // Se mantiene el template externo
-  styleUrls: ['./article-item.component.css'], // Se mantienen los estilos externos
-  encapsulation: ViewEncapsulation.Emulated, // Encapsulación para estilos independientes
+  standalone: true, 
+  imports: [CommonModule, DefaultImagePipe], 
+  templateUrl: './article-item.component.html', 
+  styleUrls: ['./article-item.component.css'], 
+  encapsulation: ViewEncapsulation.Emulated, 
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
@@ -25,6 +25,8 @@ export class ArticleItemComponent {
   @Output() quantityChange = new EventEmitter<ArticleQuantityChange>();
   @Output() delete = new EventEmitter<Article>();
 
+  constructor(private router: Router) {}
+  
   onDelete(): void {
     this.delete.emit(this.article);
   }
@@ -41,6 +43,14 @@ export class ArticleItemComponent {
     if (this.article && this.article.quantityInCart > 0) {
       this.quantityChange.emit({ article: this.article, change: -1 });
     }
+  }
+  navigateToDetail(): void {
+    this.router.navigate(['/article', this.article.id]);
+  }
+
+  addToCart(): void {
+    // Lógica para añadir al carrito (si es necesario)
+    console.log(`${this.article.name} añadido al carrito`);
   }
 
 }

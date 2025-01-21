@@ -1,10 +1,9 @@
-export interface Article {
-    id: number //Creamos el campo id
+export interface ArticleDetailInterface {
+    id: number
     name: string
     imageUrl: string
     price: number
     isOnSale: boolean
     quantityInCart: number
     description: string
-
 }

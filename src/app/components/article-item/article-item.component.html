@@ -1,7 +1,11 @@
 <div class="products-container">
     <div class="article-item" [ngClass]="{ 'on-sale': article.isOnSale }">
         <h3>{{ article.name }}</h3>
-        <img [src]="article.imageUrl | defaultImage" alt="{{ article.name }}" />
+        <img [src]="
+            article.imageUrl | defaultImage" 
+            alt="{{ article.name }}"
+            (click)="navigateToDetail()"
+            class="article-img" />
         <p>Price: {{ article.price | currency: 'EUR': 'symbol': '1.2-2' }} </p> 
 
         <!-- Botones

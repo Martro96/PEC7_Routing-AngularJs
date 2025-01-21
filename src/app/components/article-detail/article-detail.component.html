@@ -1,1 +1,20 @@
-<p>article-detail works!</p>
+<div class="products-container" *ngIf="article; else notFound">
+  <div class="article-detail" [ngClass]="{ 'on-sale': article.isOnSale }">
+    <h3>{{ article.name }}</h3>
+    <img [src]="article.imageUrl" alt="{{ article.name }}" />
+    <p>Price: {{ article.price | currency: 'EUR':'symbol':'1.2-2' }}</p>
+
+    <div class="article-item-quantity">
+      <button (click)="decreaseQuantity()" [disabled]="article.quantityInCart <= 0">-</button>
+      <span>{{ article.quantityInCart }}</span>
+      <button (click)="increaseQuantity()">+</button>
+    </div>
+
+    <div>
+      <span>{{ article.description }}</span>
+    </div>
+  </div>
+</div>
+<ng-template #notFound>
+  <p>Artículo no encontrado</p>
+</ng-template>
