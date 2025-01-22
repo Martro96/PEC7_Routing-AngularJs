@@ -5,7 +5,7 @@ const articles = [
   {
     id: 1,
     name: 'Zanahoria',
-    imageUrl: 'server-articles-pec7\assets\images\default-image.jpg',
+    imageUrl: 'server-articles-pec7\assets\zanahoria.jpg',
     price: 19.95,
     isOnSale: false,
     quantityInCart: 0
