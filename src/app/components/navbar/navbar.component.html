@@ -8,16 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav"> 
                 <!-- Al usar routes, cambiamos el (click)="changeView('article')" por routerLink="/login" -->
-                <li class="nav-item active">
+                <li class="nav-item" routerLinkActive="active">
                     <a routerLink="/login" class="nav-link">Login</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" routerLinkActive="active">
                     <a routerLink="/register" class="nav-link">Register</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" routerLinkActive="active">
                     <a routerLink="/article/list"  class="nav-link">Listado de productos</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" routerLinkActive="active">
                     <a routerLink="/article/create" class="nav-link">Nuevo artículo</a>
                 </li>
 
