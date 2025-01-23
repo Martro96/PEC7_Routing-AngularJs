@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core'; //Añado EventEmitter y Output para poder utilizar el método changeView
+import { Component, } from '@angular/core'; //Quito EventEmitter y Output porque usamos routerLink
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core'; //Añado EventE
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  @Output() viewChange = new EventEmitter<string>(); // Evento para comunicarnos con el padre
-
-  // Método para emitir el cambio de vista
-  changeView(view: string) {
-    this.viewChange.emit(view);
-  }
+  //Elimino @Output() y EventEmitter porque usamos routerLink
+  // @Output() viewChange = new EventEmitter<string>(); 
+  // changeView(view: string) {
+  //   this.viewChange.emit(view);
+  // }
 }
