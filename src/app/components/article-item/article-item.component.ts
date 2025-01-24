@@ -20,6 +20,7 @@ export interface ArticleQuantityChange {
 
 })
 
+
 export class ArticleItemComponent {
   @Input() article!: Article;
   @Output() quantityChange = new EventEmitter<ArticleQuantityChange>();
@@ -31,15 +32,17 @@ export class ArticleItemComponent {
     this.delete.emit(this.article);
   }
   ngOnInit() {
-    console.log('Artículo recibido:', this.article);
+    console.log('ArticleItemComponent: ngOnInit - Artículo recibido:', this.article);
   }
 
   increaseQuantity(): void {
+    console.log('ArticleItemComponent: increaseQuantity');
     if (this.article) {
       this.quantityChange.emit({ article: this.article, change: 1 });
     }
   }
   decreaseQuantity(): void {
+    console.log('ArticleItemComponent: decreaseQuantity'); 
     if (this.article && this.article.quantityInCart > 0) {
       this.quantityChange.emit({ article: this.article, change: -1 });
     }
@@ -49,7 +52,7 @@ export class ArticleItemComponent {
   }
 
   addToCart(): void {
-    // Lógica para añadir al carrito (si es necesario)
+    // Lógica para añadir al carrito 
     console.log(`${this.article.name} añadido al carrito`);
   }
 

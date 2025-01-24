@@ -24,6 +24,7 @@ export class ArticleService {
   }
 
   onQuantityChange(articleID: number, changeInQuantity: number): Observable<Article> {
+    console.log('ArticleService: onQuantityChange');
     return this.http.patch<Article>(`${this.API_URL}/${articleID}`, { changeInQuantity });
   }
 }

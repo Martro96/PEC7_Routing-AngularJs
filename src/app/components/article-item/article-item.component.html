@@ -6,8 +6,12 @@
         </div>
         <div class="img-article">
             <img [src]="
-            article.imageUrl | defaultImage" alt="{{ article.name }}" (click)="navigateToDetail()"
-                class="article-img" />
+            article.imageUrl | defaultImage"
+            alt="{{ article.name }}" 
+            (click)="navigateToDetail()"
+            class="article-img"
+            (error)="article.imageUrl = './assets/images/default-image.jpg'" /> 
+
         </div>
         <div class="price">
             <p>Price: {{ article.price | currency: 'EUR': 'symbol': '1.2-2' }} </p>

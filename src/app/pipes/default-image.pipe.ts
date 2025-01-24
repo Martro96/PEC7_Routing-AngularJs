@@ -1,11 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'defaultImage'
+  name: 'defaultImage',
+  standalone: true
 })
 export class DefaultImagePipe implements PipeTransform {
+  private cachedURLs = new Set<string>();
 
-  transform(imageUrl: string, fallbackURL: string = 'PEC6_Ej_Prac\ecommerce\src\app\assets\images\default-image.jpg'): string {
+  transform(imageUrl: string, fallbackURL: string = 'assets/images/default-image.jpg'): string {
     return imageUrl?.trim() ? imageUrl : fallbackURL;
   }
 

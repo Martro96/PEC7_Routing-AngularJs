@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 
 export class ArticleListComponent implements OnInit { //Indicamos que se implementa al iniciarse
-  articles$: Observable<Article[]>; // Declaramos articles como observable al poner $ al final. Indicamos con ello que se emetirán listad de artículos
+  articles$: Observable<Article[]>; // Declaramos articles como observable al poner $ al final. Indicamos con ello que se emetirán listas de artículos
 
   //inyectamos el servicio en el constructor
   constructor(private articleService: ArticleService) {
@@ -35,8 +35,17 @@ export class ArticleListComponent implements OnInit { //Indicamos que se impleme
   }
 
   onQuantityChange(event: ArticleQuantityChange): void {
-    const { article, change } = event; //esta línea la dejamos aqui 
-    this.articleService.onQuantityChange(article.id, change); 
+    console.log('ArticleListComponent: onQuantityChange');
+    const { article, change } = event; 
+    const previousQuantity = article.quantityInCart;
+    article.quantityInCart += change;
+
+    this.articleService.onQuantityChange(article.id, change).subscribe( {
+      next: () => console.log(`Quantity updated from ${previousQuantity} to ${article.quantityInCart}`),
+      error: (error) => console.error('Error updating quantity:', error),
+      complete: () => console.log('Quantity update complete')  // Este se mantiene igual, pero es importante que se logre el resultado del observable cuando se complete.
+
+    }); 
   }
 
 }
