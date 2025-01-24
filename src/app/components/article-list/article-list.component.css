@@ -1,16 +1,31 @@
-.products-container{
+.products-container {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    justify-content: center;
     padding: 20px;
-    background-color: #AEEA94;
-
+    background-color: #f3f8f4; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 h2 {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #2e5939; 
+    text-align: center;
 }
 .articles {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    
 }
 
+.article-detail.on-sale {
+    border: 2px solid #60bb77; 
+    box-shadow: 0 4px 12px #2e593958;
+}
+  
+.article-detail.on-sale h3 {
+    color: #2e5939; 
+}

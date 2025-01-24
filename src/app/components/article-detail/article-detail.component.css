@@ -1,0 +1,119 @@
+.products-container {
+    display: flex;
+    height:100vh;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f3f8f4; 
+  }
+  
+  .article-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #ffffff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .article-detail:hover {
+    transform: scale(1.02); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .article-detail h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+    color: #2e5939; 
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .article-detail img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    background-color: #e6ebe7; 
+  }
+  
+  .article-detail p {
+    font-size: 1.2rem;
+    color: #4a4a4a; 
+    font-weight: 600;
+  }
+  
+  /* Cantidad */
+  .article-item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+  }
+  .price-quantity{
+      margin-top: auto;
+  }
+  .article-item-quantity button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .article-item-quantity button:disabled {
+    background-color: #a5d6a7; 
+    cursor: not-allowed;
+  }
+  
+  .article-item-quantity button:hover:enabled {
+    background-color: #388e3c; 
+  }
+  
+  .article-item-quantity span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2e5939; 
+  }
+  
+  /* Descripción */
+  .article-detail div span {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #6b6b6b; 
+    text-align: center;
+  }
+  
+  /* Cuando el artículo está en venta */
+  .article-detail.on-sale {
+    border: 2px solid #60bb77; 
+    box-shadow: 0 4px 12px #2e593958;
+  }
+  
+  .article-detail.on-sale h3 {
+    color: #2e5939; 
+  }
+  
+  /* Plantilla de artículo no encontrado */
+  .products-container p {
+    font-size: 1.2rem;
+    color: #8e8e8e; /* Gris neutro */
+    text-align: center;
+    margin-top: 20px;
+  }
+  

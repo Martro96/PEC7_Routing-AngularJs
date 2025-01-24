@@ -1,4 +1,7 @@
-/* Contenedor general */
+/* ============================= */
+/* CONTENEDORES GENERALES */
+/* ============================= */
+
 .products-container {
     display: flex;
     flex-wrap: wrap; 
@@ -6,34 +9,60 @@
     justify-content: center; 
     padding: 16px;
     background-color: transparent;
-  }
+}
 
-/* Estilo para el artículo */
+/* ============================= */
+/* ESTILOS PARA ARTÍCULOS */
+/* ============================= */
+
 .article-item {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    width:250px;
+    width: 250px;
     height: 450px;
     border: 1px solid #000000;
     border-radius: 15px;
-    transition: all 0.3s ease;
+    background-color: #ffffff80; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.621);
     box-sizing: border-box;
     margin: 15px;
-    background-color: #f2f2f2;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.621);
+    transition: all 0.3s ease;
 }
+
+.article-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.article-item.on-sale {
+    border-color: #3a8233e7; 
+    box-shadow: 0 6px 15px rgb(122, 229, 113);
+}
+
+.article-item.out-of-stock {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    opacity: 0.8;
+}
+
+/* ============================= */
+/* CABECERA DEL ARTÍCULO */
+/* ============================= */
 
 .article-name {
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     text-align: center;
     padding: 20px;
-    background-color: #b771e5cb;
-    color: #16404D;
-    border-radius: 15px 15px 0px 0px;
-
+    margin: 0;
+    background-color: #ffffff; 
+    color: #2e5939; 
+    border-radius: 15px 15px 0 0;
 }
+
+/* ============================= */
+/* IMAGEN DEL ARTÍCULO */
+/* ============================= */
 
 .img-article {
     width: 100%; 
@@ -42,8 +71,12 @@
     margin-top: 0;  
     flex-grow: 0; 
     align-self: stretch; 
-    background-image: url('../../../assets/images/default-image.jpg'); /*Lo pongo por testear hasta que solucione las rutas del servidor*/
+    background-image: url('../../../assets/images/default-image.jpg');
 }
+
+/* ============================= */
+/* PRECIO DEL ARTÍCULO */
+/* ============================= */
 
 .price {
     display: flex;
@@ -55,11 +88,16 @@
     margin: 0;
     justify-content: center;
     align-content: start;
-    align-items: start;
+    align-items: center;
     color: #16404D;
     font-weight: 500;
-
+    font-family: 'Roboto', sans-serif;
 }
+
+/* ============================= */
+/* BOTONES Y ACCIONES */
+/* ============================= */
+
 .actions {
     width: 100%;
     margin-top: auto;
@@ -70,24 +108,19 @@
     gap: 10px;
 }
 
-/* Sección de cantidad */
-.article-item-quantity {
-    display: flex;
-    margin: auto;
-    padding: 10px;
-    align-items: center;
-    gap: 10px;
-}
-
 .article-item-quantity button {
-    background-color: #4635B1;
+    background-color: #388e3c;
     color: white;
     border: none;
-    padding: 5px 10px;
-    font-size: 1.2rem;
-    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.article-item-quantity button:hover:not(:disabled) {
+    background-color: #a5d6a7; 
 }
 
 .article-item-quantity button:disabled {
@@ -95,34 +128,18 @@
     cursor: not-allowed;
 }
 
-.article-item-quantity p {
-    margin: 0 10px;
-    font-size: 1.2rem;
-}
-
-/* Cuando el producto está en stock */
-.article-item.in-stock {
-    background-color: #e0f7e0; 
-    border-color: #4caf50; 
-}
-
-/* Cuando el producto está agotado */
-.article-item.out-of-stock {
-    background-color: #f8d7da; 
-    border-color: #dc3545; 
-}
-
-/* Efecto al pasar el ratón sobre el artículo */
-.article-item:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.delete-product{
-    border-color:  #ff0015; 
-    cursor: pointer;
+.delete-product {
+    background-color: transparent;
+    color: #ff0015;
+    border: 2px solid #ff0015;
     border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
 .delete-product:hover {
-    background-color: #ff0015; 
+    background-color: #ff0015;
     color: white;
 }
