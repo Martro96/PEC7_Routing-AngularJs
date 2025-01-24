@@ -1,5 +1,8 @@
 <div class="products-container" *ngIf="article; else notFound">
-  <div class="article-detail" [ngClass]="{ 'on-sale': article.isOnSale }">
+  <div class="article-detail" 
+  [ngClass]="{ 'on-sale': article.isOnSale }"
+  [ngClass]="{'out-of-stock': article.isOnSale === false}">
+  
     <h3>{{ article.name }}</h3>
     <img [src]="article.imageUrl" alt="{{ article.name }}" />
     <div class="article-description">

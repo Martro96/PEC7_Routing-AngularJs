@@ -1,5 +1,8 @@
 <div class="products-container">
-    <div class="article-item" [ngClass]="{ 'on-sale': article.isOnSale }">
+    <div class="article-item" 
+    [ngClass]="{ 'on-sale': article.isOnSale }"
+    [ngClass]="{'out-of-stock': article.isOnSale === false}"
+    >
         <div class="title">
             <h3 class="article-name">{{ article.name }}</h3>
 
