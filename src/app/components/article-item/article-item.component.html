@@ -1,26 +1,35 @@
 <div class="products-container">
     <div class="article-item" [ngClass]="{ 'on-sale': article.isOnSale }">
-        <h3>{{ article.name }}</h3>
-        <img [src]="
-            article.imageUrl | defaultImage" 
-            alt="{{ article.name }}"
-            (click)="navigateToDetail()"
-            class="article-img" />
-        <p>Price: {{ article.price | currency: 'EUR': 'symbol': '1.2-2' }} </p> 
+        <div class="title">
+            <h3 class="article-name">{{ article.name }}</h3>
+
+        </div>
+        <div class="img-article">
+            <img [src]="
+            article.imageUrl | defaultImage" alt="{{ article.name }}" (click)="navigateToDetail()"
+                class="article-img" />
+        </div>
+        <div class="price">
+            <p>Price: {{ article.price | currency: 'EUR': 'symbol': '1.2-2' }} </p>
+
+        </div>
 
         <!-- Botones
             Añadimos el *ngIf="article.isOnSale" para mostrar los botones de cantidad sólo si está en venta  
         -->
-        <div class="article-item-quantity" *ngIf="article.isOnSale">
+            <div class="actions">
+                <div class="article-item-quantity" *ngIf="article.isOnSale">
             <button (click)="decreaseQuantity()" [disabled]="article.quantityInCart <= 0">-</button>
             <span>{{ article.quantityInCart }}</span>
             <button (click)="increaseQuantity()">+</button>
         </div>
-        
+
         <div class="article-item-actions">
             <!-- Botón para eliminar el artículo -->
-            <button (click)="onDelete()">Eliminar producto del listado</button>
+            <button (click)="onDelete()" class="delete-product">Eliminar producto del listado</button>
         </div>
+            </div>
+        
 
     </div>
 

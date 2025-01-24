@@ -5,53 +5,70 @@
     gap: 16px; 
     justify-content: center; 
     padding: 16px;
+    background-color: transparent;
   }
 
 /* Estilo para el artículo */
 .article-item {
-    display: flex;
+    display:flex;
     flex-direction: column;
     width:250px;
-    align-items: stretch;
-    justify-content: flex-start;
-    padding: 10px;
+    height: 450px;
     border: 1px solid #000000;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    border-radius: 15px;
     transition: all 0.3s ease;
     box-sizing: border-box;
+    margin: 15px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.621);
 }
 
-/* Estilo para la imagen */ 
-.article-item img {
+.article-name {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+    background-color: #b771e5cb;
+    color: #16404D;
+    border-radius: 15px 15px 0px 0px;
+
+}
+
+.img-article {
     width: 100%; 
     height: 200px;
     object-fit: cover; 
-    margin: 0; 
-    border-radius: 10px 10px 0 0; 
+    margin-top: 0;  
     flex-grow: 0; 
     align-self: stretch; 
+    background-image: url('../../../assets/images/default-image.jpg'); /*Lo pongo por testear hasta que solucione las rutas del servidor*/
 }
 
-/* Nombre del producto */
-.article-item-name p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 5px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+.price {
     display: flex;
-}
-
-/* Precio del producto */
-.article-item-price p {
+    flex-wrap: wrap;
+    width: 100%;
+    max-height: 100px;
     font-size: 1.1rem;
-    color: #333;
-    margin: auto;
+    padding: 5px;
+    margin: 0;
     justify-content: center;
+    align-content: start;
+    align-items: start;
+    color: #16404D;
+    font-weight: 500;
+
+}
+.actions {
+    width: 100%;
+    margin-top: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    display: flex;}
+    gap: 10px;
+}
 
 /* Sección de cantidad */
 .article-item-quantity {
@@ -59,10 +76,11 @@
     margin: auto;
     padding: 10px;
     align-items: center;
+    gap: 10px;
 }
 
 .article-item-quantity button {
-    background-color: #007bff;
+    background-color: #4635B1;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -73,7 +91,7 @@
 }
 
 .article-item-quantity button:disabled {
-    background-color: #ddd;
+    background-color: #666363;
     cursor: not-allowed;
 }
 
@@ -99,10 +117,12 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/*PARA EL EJERCICIO 6*/
-/*Estilo emulated*/
-.price {
-    color: green !important;
-    font-weight: bold;
-  }
-  
+.delete-product{
+    border-color:  #ff0015; 
+    cursor: pointer;
+    border-radius: 5px;
+}
+.delete-product:hover {
+    background-color: #ff0015; 
+    color: white;
+}

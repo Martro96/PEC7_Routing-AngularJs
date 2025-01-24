@@ -1,0 +1,16 @@
+.products-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #AEEA94;
+
+}
+h2 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+}
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+}
+
