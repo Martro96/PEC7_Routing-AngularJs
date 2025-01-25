@@ -1,0 +1,18 @@
+<div class="home-container">
+    <h1>Bienvenido a E-commerce</h1>
+  
+    <div class="quick-actions">
+      <button routerLink="/article/list" class="action-button">Ver artículos</button>
+      <button routerLink="/article/create" class="action-button">Crear nuevo artículo</button>
+    </div>
+  
+        <h2>Últimos artículos</h2>
+        <div class="article-list">
+    <app-article-item 
+          *ngFor="let article of articles$ | async" 
+          [article]="article">
+        </app-article-item>
+      </div>
+      
+  </div>
+  

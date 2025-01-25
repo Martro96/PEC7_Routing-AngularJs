@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';  
 import { UserService } from '../../services/user.service';
-import { UserInterface } from '../user/user-interface';
+import { UserInterface } from '../../components/user/user-interface';
 
 
 @Component({
