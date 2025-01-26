@@ -4,20 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserStoreService {
-  private authToken: string | null = null;
-
   constructor() { }
 
-  //Aquí los métodos de lo que podrá hacer un token (generarse - set y obtener-get)
-  setToken(token: string):void {
-    this.authToken = token;
-  }
-  getToken(): string | null {  
-    return this.authToken;
+  // Establecer el token en el localStorage
+  setToken(token: string): void {
+    localStorage.setItem('authToken', token);
   }
 
-  //Con isAuthenticated confirmamos si el usuario está autentificado
-  isAuthenticated():boolean {
-    return !!this.authToken; //¿no debería confirmarse con un if si está o no autentificado, y dar ok o generar error? No sé qué significa el !!
+  // Obtener el token desde el localStorage
+  getToken(): string | null {  
+    return localStorage.getItem('authToken'); // Devolver el token desde localStorage
+  }
+
+  // Confirmar si el usuario está autenticado
+  isAuthenticated(): boolean {
+    return !!this.getToken(); // Devuelve true si el token está presente
+  }
+
+  // Eliminar el token del localStorage
+  clearToken(): void {
+    localStorage.removeItem('authToken');
   }
 }

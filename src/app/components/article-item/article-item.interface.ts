@@ -1,5 +1,5 @@
 export interface Article {
-    id: number //Creamos el campo id
+    id: number 
     name: string
     imageUrl: string
     price: number

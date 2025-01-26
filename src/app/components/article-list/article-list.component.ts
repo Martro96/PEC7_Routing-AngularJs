@@ -18,14 +18,17 @@ export class ArticleListComponent implements OnInit { //Indicamos que se impleme
 
   //inyectamos el servicio en el constructor
   constructor(private articleService: ArticleService) {
-    this.articles$ = this.articleService.getArticles();
+    // this.articles$ = this.articleService.getArticles();
+    this.articles$ = this.articleService.articles$;
+
   } 
 
   //Se elimina la lógica de los métodos para pasarlas al Servicio, pero se mantienen como llamada al servicio
 
   ngOnInit(): void {
+    this.articleService.getArticles().subscribe();
   }
-
+  
   trackById(index: number, item: Article): number {
     return item.id; // este se mantiene igual
   }

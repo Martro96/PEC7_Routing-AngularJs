@@ -47,26 +47,31 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   increaseQuantity(): void {
-    if (this.article) {
+    if (this.article) {  // Verificación si article no es undefined
+      const previousQuantity = this.article.quantityInCart;
+      this.article.quantityInCart++;
       this.articleService.onQuantityChange(this.article.id, 1).subscribe({
-        next: (updatedArticle) => {
-          this.article = updatedArticle;
+        next: () => {
+          console.log(`Cantidad aumentada: de ${previousQuantity} a ${this.article?.quantityInCart}`);
         },
-        error: () => console.error('Error al incrementar la cantidad.')
+        error: (err) => console.error('Error al aumentar la cantidad:', err),
       });
     }
   }
-
+  
   decreaseQuantity(): void {
-    if (this.article && this.article.quantityInCart > 0) {
+    if (this.article && this.article.quantityInCart > 0) {  // Verificación si article no es undefined
+      const previousQuantity = this.article.quantityInCart;
+      this.article.quantityInCart--;
       this.articleService.onQuantityChange(this.article.id, -1).subscribe({
-        next: (updatedArticle) => {
-          this.article = updatedArticle;
+        next: () => {
+          console.log(`Cantidad disminuida: de ${previousQuantity} a ${this.article?.quantityInCart}`);
         },
-        error: () => console.error('Error al decrementar la cantidad.')
+        error: (err) => console.error('Error al disminuir la cantidad:', err),
       });
     }
   }
+  
 
   onDelete(): void {
     if (this.article) {

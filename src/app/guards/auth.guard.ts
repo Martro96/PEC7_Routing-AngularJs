@@ -1,11 +1,15 @@
 import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const isAuthenticated = !!localStorage.getItem('authToken'); //Usamos !! para convertir el valor de localStorage.getItem('authToken') en un booleano y saber si el token existe y es válido.
+  const router = inject(Router);
+  const isAuthenticated = !!localStorage.getItem('authToken');
+
   if (!isAuthenticated) {
-    window.location.href = '/login';
+    router.navigate(['/login']); // Usamos Router para redirigir sin recargar la página
     return false;
-  
   }
+  
   return true;
 };

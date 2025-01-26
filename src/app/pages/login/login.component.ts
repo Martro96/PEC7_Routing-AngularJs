@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';  
 import { UserService } from '../../services/user.service';
 import { UserInterface } from '../../components/user/user-interface';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { UserInterface } from '../../components/user/user-interface';
 export class LoginComponent {
   loginForm: FormGroup;
 
-    constructor(private fb: FormBuilder, private userService: UserService) { 
+    constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { 
       this.loginForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]], 
         password: ['', [
@@ -29,11 +30,15 @@ export class LoginComponent {
     
     loginUser(): void {
       if (this.loginForm.valid) {
-        //const credentials = this.loginForm.value;
         const credentials: Partial<UserInterface> = this.loginForm.value; //Se usa Partial para permitir que el usuario tenga sólo algunas de las propiedades, no obligatoriamente todas las recogdas en la interfaz
         this.userService.authenticate(credentials.email!, credentials.password!).subscribe({
-          next: (response) => console.log('Usuario autenticado:', response),
-          error: (err) => console.error('Error al autenticar:', err),
+          next: (response) => { 
+            localStorage.setItem('authToken', response.token);
+            this.router.navigate(['/']);
+          },
+          error: (err) => {
+            console.error('Error al autenticar:', err);
+          },
         });
       } else {
         console.log('Formulario inválido');

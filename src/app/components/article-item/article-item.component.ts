@@ -48,12 +48,10 @@ export class ArticleItemComponent {
     }
   }
   navigateToDetail(): void {
-    this.router.navigate(['/article', this.article.id]);
+    this.router.navigate(['/article/detail', this.article.id]);
   }
 
-  addToCart(): void {
-    // Lógica para añadir al carrito 
-    console.log(`${this.article.name} añadido al carrito`);
-  }
+
+  
 
 }

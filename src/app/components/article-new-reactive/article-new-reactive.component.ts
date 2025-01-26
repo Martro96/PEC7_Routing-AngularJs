@@ -37,7 +37,6 @@ export class ArticleNewReactiveComponent  {
         ...this.articleForm.value,
         isOnSale: this.articleForm.value.onSale ?? false, // Valor por defecto en caso de que falte
         quantityInCart: 0, // nos asegura que inicie siempre en 0
-        id: Date.now(), // Usamos `Date.now()` como ID temporal para no duplicar artículos
       };
       this.articleService.create(newArticle);
       this.articleForm.reset({

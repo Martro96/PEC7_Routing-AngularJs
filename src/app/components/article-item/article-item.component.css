@@ -58,6 +58,9 @@
     background-color: #ffffff; 
     color: #2e5939; 
     border-radius: 15px 15px 0 0;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ============================= */
@@ -75,8 +78,9 @@
 }
 .article-img {
     width: 100%; 
-    height: auto;
+    height: 150px;
     object-fit: cover; 
+    object-position: center;
 }
 /* ============================= */
 /* PRECIO DEL ARTÍCULO */
