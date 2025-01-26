@@ -1,5 +1,5 @@
-<div class="products-container">
   <h2>Lista de artículos</h2>
+<div class="products-container">
   <app-article-item
   *ngFor="let article of articles$ | async; trackBy: trackById"
   [article]="article"
